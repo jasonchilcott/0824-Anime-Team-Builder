@@ -12,7 +12,13 @@ class CharContainer extends Component {
   }
 
   renderChars = () => {
-    return this.state.api.map((char) => <CharCard key={char.name} char={char}/>)
+    return this.state.api.map((char) => <CharCard key={char.name} char={char} clickHandler={this.props.clickHandler}/>)
+  }
+
+  submitHandler = (char) => {
+    this.setState((prevState) => ({ api: [char, ...prevState.api] }))
+
+
   }
 
   render () {
@@ -20,7 +26,7 @@ class CharContainer extends Component {
       <div className='char container'>
         <h2>All Characters</h2>
         <div>
-          <NewChar />
+          <NewChar submitHandler={this.submitHandler}/>
         </div>
         <div>
           {this.renderChars()}

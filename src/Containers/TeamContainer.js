@@ -3,18 +3,17 @@ import CharCard from '../Components/CharCard'
 
 class TeamContainer extends Component {
 
-  state = {
-  }
+  
 
   renderChars = () => {
-    //return this.props.map((char) => <CharCard key={char.name} char={char}/>)
+    return this.props.team.map((char) => <CharCard key={char.name} char={char}/>)
   }
 
   render () {
     return (
       <div className='team container'>
         <h2>Team</h2>
-        <div>
+        <div id='rtl'>
           {this.renderChars()}
         </div>
       </div>
